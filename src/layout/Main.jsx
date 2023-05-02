@@ -1,9 +1,12 @@
 import React from 'react';
+import NavBar from '../pages/SharedPages/Navbar/NavBar';
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
         <div>
-            <h1 className="text-3xl btn">This is rion hi</h1>
+            <NavBar></NavBar>
+            <Outlet></Outlet>
         </div>
     );
 };
