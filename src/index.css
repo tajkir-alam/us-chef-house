@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "primereact/resources/themes/lara-light-indigo/theme.css";
-@import "primereact/resources/primereact.min.css"; 
-
 @layer components {
     .custom-container {
         @apply md:mx-auto md:px-32;

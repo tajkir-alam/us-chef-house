@@ -31,8 +31,12 @@ const Home = () => {
                 </div>
             </section>
 
-            <section>
-
+            <section className='custom-container mt-28'>
+                <div className='text-center w-3/4 md:w-2/4 mx-auto'>
+                    <h2 className='text-3xl md:text-5xl'>You Want To Be A Chef ?</h2>
+                    <div className='border border-slate-300 w-2/4 mx-auto mt-8 mb-5'></div>
+                    <p className='md:font-semibold text-slate-500'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ex accusamus amet praesenti Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, est?</p>
+                </div>
             </section>
         </div>
     );

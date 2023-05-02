@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { FreeMode, Keyboard } from "swiper";
+import { FreeMode } from "swiper";
 
 import img1 from '../../../assets/chef1.jpg'
 import img2 from '../../../assets/chef2.webp'

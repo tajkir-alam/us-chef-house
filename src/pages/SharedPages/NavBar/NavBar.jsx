@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 const NavBar = () => {
     const [bgColor, setBgColor] = useState(false);
     const changeColor = () => {
-        if (window.scrollY >= 80) {
+        if (window.scrollY >= 90) {
             setBgColor(true)
         }
         else {
@@ -16,7 +16,7 @@ const NavBar = () => {
 
 
     return (
-            <div className= {bgColor ? "md:bg-slate-800 md:fixed navbar custom-container z-10" : 'fixed navbar custom-container'}>
+            <div className= {bgColor ? "md:bg-slate-800 md:fixed navbar custom-container z-10 duration-500 delay-75" : 'fixed navbar custom-container'}>
                 {/* For Mobile View */}
                 <div className="navbar-start">
                     <div className="dropdown">
