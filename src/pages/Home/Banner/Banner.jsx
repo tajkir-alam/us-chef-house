@@ -3,14 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { FreeMode } from "swiper";
+import { FreeMode, Keyboard } from "swiper";
 
 import img1 from '../../../assets/chef1.jpg'
-import img2 from '../../../assets/chef2.png'
+import img2 from '../../../assets/chef2.webp'
 import img3 from '../../../assets/chef3.jpg'
-import img4 from '../../../assets/chef4.png'
-import img5 from '../../../assets/chef5.jpg'
-import img6 from '../../../assets/chef6.png'
+import img4 from '../../../assets/chef4.jpg'
+import img5 from '../../../assets/chef5.png'
+import img6 from '../../../assets/chef6.jpg'
 
 
 const Banner = () => {
@@ -18,27 +18,27 @@ const Banner = () => {
         <div className='flex justify-between items-center py-20'>
             <div className="carousel md:w-2/4 mx-auto text-white">
                 <div id="item1" className="carousel-item w-full mx-auto block text-center">
-                    <h1 className='text-7xl mb-4'>Gordon Ramsay</h1>
+                    <h1 className='text-7xl mb-4'>Chef Gordon Ramsay</h1>
                     <p className='text-sm font-semibold'>WE HAVE THE THE <br /> BEST CHEF'S FROM THE WORLD</p>
                 </div>
                 <div id="item2" className="carousel-item w-full  mx-auto block text-center">
-                    <h1 className='text-7xl mb-4'>Bobby Flay</h1>
+                    <h1 className='text-7xl mb-4'>Chef Christina Tosi</h1>
                     <p className='text-sm font-semibold'>WE HAVE THE THE <br /> BEST CHEF'S FROM THE WORLD</p>
                 </div>
                 <div id="item3" className="carousel-item w-full  mx-auto block text-center">
-                    <h1 className='text-7xl mb-4'>Anthony Bourdain</h1>
+                    <h1 className='text-7xl mb-4'>Chef wolfgang Puck</h1>
                     <p className='text-sm font-semibold'>WE HAVE THE THE <br /> BEST CHEF'S FROM THE WORLD</p>
                 </div>
                 <div id="item4" className="carousel-item w-full  mx-auto block text-center">
-                    <h1 className='text-7xl mb-4'>Julia Child</h1>
+                    <h1 className='text-7xl mb-4'>Chef Cat Cora</h1>
                     <p className='text-sm font-semibold'>WE HAVE THE THE <br /> BEST CHEF'S FROM THE WORLD</p>
                 </div>
                 <div id="item5" className="carousel-item w-full  mx-auto block text-center">
-                    <h1 className='text-7xl mb-4'>Rachel Ray</h1>
+                    <h1 className='text-7xl mb-4'>Chef Emeril Lagasse</h1>
                     <p className='text-sm font-semibold'>WE HAVE THE THE <br /> BEST CHEF'S FROM THE WORLD</p>
                 </div>
                 <div id="item6" className="carousel-item w-full  mx-auto block text-center">
-                    <h1 className='text-7xl mb-4'>Giada Laurentis</h1>
+                    <h1 className='text-7xl mb-4'>Chef Anne Burel</h1>
                     <p className='text-sm font-semibold'>WE HAVE THE THE <br /> BEST CHEF'S FROM THE WORLD</p>
                 </div>
             </div>
