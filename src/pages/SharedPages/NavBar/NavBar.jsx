@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
     return (
         <>
-            <div className="navbar md:container md:mx-auto md:px-20">
+            <div className="navbar custom-container">
                 {/* For Mobile View */}
                 <div className="navbar-start">
                     <div className="dropdown">
