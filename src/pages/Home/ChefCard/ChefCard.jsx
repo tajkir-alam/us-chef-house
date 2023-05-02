@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HiThumbUp } from 'react-icons/hi';
+import LazyLoad from 'react-lazy-load';
 
 const ChefCard = ({ chef }) => {
     const { id, name, picture, years_of_experience, num_of_recipes, likes } = chef;
@@ -13,7 +14,7 @@ const ChefCard = ({ chef }) => {
             setUpdateLike(newLike);
             setCheck(newLike);
         }
-        else{
+        else {
             const decreaseLike = updateLike - 1;
             setCheck(decreaseLike);
         }
@@ -21,7 +22,9 @@ const ChefCard = ({ chef }) => {
 
     return (
         <div className="card text-black bg-base-100 shadow-xl">
-            <figure><img src={picture} alt="Shoes" className='w-full h-72 md:h-64' /></figure>
+            <LazyLoad  offset={300}>
+                <figure><img src={picture} alt="Shoes" className='w-full h-72 md:h-64 rounded-t-2xl' /></figure>
+            </LazyLoad>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{name}</h2>
                 <li className='font-semibold text-slate-700'>{years_of_experience} years_of_experience</li>

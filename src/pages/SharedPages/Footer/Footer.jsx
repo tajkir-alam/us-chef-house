@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className='bg-[#1A1919] mt-5'>
-            <div className='my-[calc(100vh+300px)]'>
-            {/* <div className='md:w-4/5 mx-auto py-8 px-2 md:px-0'> */}
+        <footer className='bg-slate-800'>
+            {/* <div className='my-[calc(100vh+300px)]'> */}
+            <div className='md:w-4/5 mx-auto py-8 px-2 md:px-0'>
                 <div className='text-white grid md:grid-cols-5 gap-4 px-2'>
                     <div>
                         <h2 className='font-extrabold text-2xl my-5'>US Chef House</h2>
