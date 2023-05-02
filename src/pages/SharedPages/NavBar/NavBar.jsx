@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiUserCircle, HiMenuAlt1 } from "react-icons/hi";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
+    const [bgColor, setBgColor] = useState(false);
+    const changeColor = () => {
+        if (window.scrollY >= 80) {
+            setBgColor(true)
+        }
+        else {
+            setBgColor(false)
+        }
+    }
+    window.addEventListener('scroll', changeColor)
+
+
     return (
-        <>
-            <div className="navbar custom-container">
+            <div className= {bgColor ? "md:bg-slate-800 md:fixed navbar custom-container z-10" : 'fixed navbar custom-container'}>
                 {/* For Mobile View */}
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -13,9 +24,9 @@ const NavBar = () => {
                             <HiMenuAlt1 className='text-white text-3xl'></HiMenuAlt1>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link>Home</Link></li>
-                            <li><Link>About US</Link></li>
-                            <li><Link>Blog</Link></li>
+                            <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE]duration-500 font-bold" : ""}>Home</NavLink></li>
+                            <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE] duration-500 font-bold" : ""}>About US</NavLink></li>
+                            <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE] duration-500 font-bold" : ""}>Blog</NavLink></li>
                         </ul>
                     </div>
                     <Link to={'/'} className="btn bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link>
@@ -25,9 +36,9 @@ const NavBar = () => {
                 <div className="navbar-end">
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal text-white px-1">
-                            <li><Link>Home</Link></li>
-                            <li><Link>About US</Link></li>
-                            <li><Link>Blog</Link></li>
+                            <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#a7b3ff] duration-500 font-bold" : ""}>Home</NavLink></li>
+                            <li><NavLink to={'/d'} className={({ isActive }) => isActive ? "text-[#a7b3ff] duration-500 font-bold" : ""}>About US</NavLink></li>
+                            <li><NavLink to={'/d'} className={({ isActive }) => isActive ? "text-[#a7b3ff] duration-500 font-bold" : ""}>Blog</NavLink></li>
                         </ul>
                     </div>
 
@@ -46,7 +57,6 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-        </>
     );
 };
 
