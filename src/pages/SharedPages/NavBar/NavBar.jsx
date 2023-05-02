@@ -18,7 +18,7 @@ const NavBar = () => {
                             <li><Link>Blog</Link></li>
                         </ul>
                     </div>
-                    <Link to={'/'} className="btn bg-transparent border-0 normal-case text-3xl">CHEF HOUSE</Link>
+                    <Link to={'/'} className="btn bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link>
                 </div>
 
                 {/* For Desktop View */}
