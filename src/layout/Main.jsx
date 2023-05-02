@@ -1,11 +1,11 @@
 import React from 'react';
-import NavBar from '../pages/SharedPages/Navbar/NavBar';
 import { Outlet } from 'react-router-dom';
+import Home from '../pages/Home/Home/Home';
 
 const Main = () => {
     return (
         <div>
-            <NavBar></NavBar>
+            <Home></Home>
             <Outlet></Outlet>
         </div>
     );
