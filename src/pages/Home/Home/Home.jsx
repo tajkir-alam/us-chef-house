@@ -9,7 +9,6 @@ import ribs from '../../../assets/bbqRibs.jpeg';
 import pizza from '../../../assets/pizza.jpeg';
 import about from '../../../assets/about.png';
 import LazyLoad from 'react-lazy-load';
-
 const Home = () => {
     const [chefs, setChefs] = useState([]);
 
@@ -26,7 +25,7 @@ const Home = () => {
         <div>
             <LazyLoad>
                 <section className='bg-banner-img bg-no-repeat h-[calc(100vh-150px)] lg:[calc(100vh + 10px)]'>
-                    <Banner />
+                    <Banner />xl
                 </section>
             </LazyLoad>
 
