@@ -1,5 +1,5 @@
 import { Rating } from '@smastrom/react-rating';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LazyLoad from 'react-lazy-load';
 import '@smastrom/react-rating/style.css'
 import { HiHeart } from 'react-icons/hi';
@@ -8,11 +8,12 @@ import { ToastContainer, toast } from 'react-toastify';
 const ChefCard = ({ recipe }) => {
     const { cooking_method, ingredients, rating, recipe_img, recipe_name } = recipe;
 
-    const [favorite, setFavorite] = useState(false);
+    const [favorite, setFavorite] = useState(true);
 
     const notifyy = () => {
-        toast("This recipe is added on your favorite")
-        setFavorite(true);
+        if(favorite){
+            toast("This recipe is added on your favorite")
+        }
     };
 
     return (
@@ -40,8 +41,11 @@ const ChefCard = ({ recipe }) => {
                             <p className='text-3xl text-slate-500 font-bold'>{rating}</p>
                         </div>
 
-                        <div onClick={notifyy}>
-                            <HiHeart className={favorite ? 'text-4xl text-rose-600' : 'disabled cursor-pointer text-4xl text-slate-400' }></HiHeart>
+                        <div onClick={() => {
+                            setFavorite(false)
+                            notifyy()
+                        }}>
+                            <HiHeart className={favorite ? 'cursor-pointer text-4xl text-slate-400' : ' text-4xl text-rose-600 disabled'}></HiHeart>
                         </div>
                     </div>
                 </div>

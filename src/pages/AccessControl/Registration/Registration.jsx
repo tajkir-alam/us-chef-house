@@ -27,7 +27,7 @@ const Registration = () => {
                                 <br />
                                 Please Login!
                             </p>
-                            <Link to={'/login'} className="btn rounded-full mx-auto mt-12 btn-wide">SIGN IN</Link>
+                            <Link to={'/login'} className="btn rounded-full mx-auto mt-6 lg:mt-12 btn-wide">SIGN IN</Link>
                         </div>
 
                         <div className='col-span-2 px-20 justify-center text-center'>
@@ -57,9 +57,9 @@ const Registration = () => {
                                     className='border border-slate-200 mb-6 outline-none px-6 py-3 rounded-lg shadow-inner bg-transparent'
                                 />
                                 <input type="password" name="password" id="password" placeholder='Password' required
-                                    className='border border-slate-200 mb-6 outline-none px-6 py-3 rounded-lg shadow-inner bg-transparent'
+                                    className='border border-slate-200 outline-none px-6 py-3 rounded-lg shadow-inner bg-transparent'
                                 />
-                                <input type="submit" value="SIGN UP" className="btn rounded-full mx-auto my-10 btn-wide" />
+                                <input type="submit" value="SIGN UP" className="btn rounded-full mx-auto my-8 md:my-10 btn-wide" />
                             </form>
                         </div>
                     </div>
