@@ -23,7 +23,7 @@ const ChefCard = ({ chef }) => {
 
     return (
         <div className="card text-black bg-base-100 shadow-xl">
-            <LazyLoad  offset={300}>
+            <LazyLoad offset={300}  className='lazy'>
                 <figure><img src={picture} alt="Shoes" className='w-full h-72 md:h-64 rounded-t-2xl' /></figure>
             </LazyLoad>
             <div className="card-body">

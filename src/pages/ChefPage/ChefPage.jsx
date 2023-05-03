@@ -41,7 +41,7 @@ const ChefPage = () => {
             <section>
                 <div className="px-4 md:custom-container flex flex-col-reverse items-center md:grid md:grid-cols-2 gap-5 bg-[#b4b9e9] py-24">
                     <div className='md:w-4/5'>
-                        <LazyLoad>
+                        <LazyLoad className='lazy'>
                             <img src={picture} alt="" className='w-full h-96' />
                         </LazyLoad>
 

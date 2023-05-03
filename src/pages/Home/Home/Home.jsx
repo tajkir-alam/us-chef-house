@@ -23,11 +23,9 @@ const Home = () => {
 
     return (
         <div>
-            <LazyLoad>
-                <section className='bg-banner-img bg-no-repeat h-[calc(100vh-150px)] lg:[calc(100vh + 10px)]'>
-                    <Banner />xl
-                </section>
-            </LazyLoad>
+            <section className='bg-banner-img bg-no-repeat h-[calc(100vh-150px)] lg:[calc(100vh + 10px)]'>
+                <Banner />
+            </section>
 
             <section className='my-0 bg-slate-800 text-white py-24'>
                 <div className='text-center w-3/4 md:w-2/4 mx-auto'>
@@ -87,7 +85,7 @@ const Home = () => {
 
                 <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-5 md:mt-16">
                     <div className='md:w-4/5'>
-                        <LazyLoad>
+                        <LazyLoad className='lazy'>
                             <img src={about} alt="" />
                         </LazyLoad>
                     </div>
