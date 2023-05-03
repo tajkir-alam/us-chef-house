@@ -1,12 +1,19 @@
 import { Rating } from '@smastrom/react-rating';
-import React from 'react';
+import React, { useState } from 'react';
 import LazyLoad from 'react-lazy-load';
 import '@smastrom/react-rating/style.css'
+import { HiHeart } from 'react-icons/hi';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ChefCard = ({ recipe }) => {
     const { cooking_method, ingredients, rating, recipe_img, recipe_name } = recipe;
 
-    console.log(recipe);
+    const [favorite, setFavorite] = useState(false);
+
+    const notifyy = () => {
+        toast("This recipe is added on your favorite")
+        setFavorite(true);
+    };
 
     return (
         <div>
@@ -22,16 +29,38 @@ const ChefCard = ({ recipe }) => {
                         ingredients.map((item, index) => <li key={index} className='pl-4'>{item}</li>)
                     }
                     <p className='my-3 font-semibold'>{cooking_method}</p>
-                    <div className='flex gap-3 items-center'>
-                        <Rating
-                            style={{ maxWidth: 180 }}
-                            value={rating}
-                            readOnly
-                        />
-                        <p className='text-3xl text-slate-500 font-bold'>{rating}</p>
+
+                    <div className='flex justify-between items-center'>
+                        <div className='flex gap-3 items-center'>
+                            <Rating
+                                style={{ maxWidth: 180 }}
+                                value={rating}
+                                readOnly
+                            />
+                            <p className='text-3xl text-slate-500 font-bold'>{rating}</p>
+                        </div>
+
+                        <div onClick={notifyy}>
+                            <HiHeart className={favorite ? 'text-4xl text-rose-600' : 'disabled cursor-pointer text-4xl text-slate-400' }></HiHeart>
+                        </div>
                     </div>
                 </div>
             </section>
+
+
+
+            <ToastContainer
+                position="top-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };

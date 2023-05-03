@@ -52,7 +52,9 @@ const Home = () => {
                 <div className='grid md:grid-cols-3 mt-10'>
                     <div className=' text-center p-8 rounded-3xl'>
                         <div className='flex justify-center'>
-                            <img src={burger} alt="" className='w-56 h-56 rounded-full border-8 border-error ' />
+                            <LazyLoad className='lazy'>
+                                <img src={burger} alt="" className='w-56 h-56 rounded-full border-8 border-error ' />
+                            </LazyLoad>
                         </div>
                         <h1 className='my-4 text-2xl font-bold tracking-wider'>Weekly Workshop</h1>
                         <p className='font-semibold text-slate-700 text-md'>Lorem ipsum dolor sit amet consectetur, quaerat dolores fugiat eveniet. Excepturi?</p>
@@ -60,7 +62,9 @@ const Home = () => {
                     </div>
                     <div className=' text-center p-8 rounded-3xl'>
                         <div className='flex justify-center'>
-                            <img src={ribs} alt="" className='w-56 h-56 rounded-full border-8 border-error ' />
+                            <LazyLoad className='lazy'>
+                                <img src={ribs} alt="" className='w-56 h-56 rounded-full border-8 border-error ' />
+                            </LazyLoad>
                         </div>
                         <h1 className='my-4 text-2xl font-bold tracking-wider'>Online Training</h1>
                         <p className='font-semibold text-slate-700 text-md'>Lorem ipsum dolor sit amet consectetur, quaerat dolores fugiat eveniet. Excepturi?</p>
@@ -68,7 +72,9 @@ const Home = () => {
                     </div>
                     <div className=' text-center p-8 rounded-3xl'>
                         <div className='flex justify-center'>
-                            <img src={pizza} alt="" className='w-56 h-56 rounded-full border-8 border-error ' />
+                            <LazyLoad className='lazy'>
+                                <img src={pizza} alt="" className='w-56 h-56 rounded-full border-8 border-error ' />
+                            </LazyLoad>
                         </div>
                         <h1 className='my-4 text-2xl font-bold tracking-wider'>Monthly Workshop</h1>
                         <p className='font-semibold text-slate-700 text-md'>Lorem ipsum dolor sit amet consectetur, quaerat dolores fugiat eveniet. Excepturi?</p>
