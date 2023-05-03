@@ -16,19 +16,19 @@ const router = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
-                path: '/chef-page/:id',
+                path: 'login',
+                element: <Login></Login>
+            },
+            {
+                path: 'registration',
+                element: <Registration></Registration>
+            },
+            {
+                path: 'chef-page/:id',
                 element: <ChefPage></ChefPage>,
                 loader: ({params}) => fetch(`https://server-data-tajkir-alam.vercel.app/chef-about/${params.id}`)
-            }
+            },
         ]
-    },
-    {
-        path: '/login',
-        element: <Login></Login>
-    },
-    {
-        path: '/registration',
-        element: <Registration></Registration>
     }
 ]);
 
