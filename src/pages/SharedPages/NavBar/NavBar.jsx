@@ -17,12 +17,12 @@ const NavBar = () => {
 
     return (
         <>
-            <div className={bgColor ? "md:bg-slate-800 md:fixed navbar custom-container z-10 duration-500 delay-75" : 'bg-slate-300 md:bg-transparent md:fixed navbar custom-container'}>
+            <div className={bgColor ? "lg:bg-slate-800 lg:fixed navbar custom-container z-10 duration-500 delay-75" : 'bg-slate-300 lg:bg-transparent lg:fixed navbar custom-container'}>
                 {/* For Mobile View */}
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <HiMenuAlt1 className='md:text-white text-3xl'></HiMenuAlt1>
+                            <HiMenuAlt1 className='lg:text-white text-3xl'></HiMenuAlt1>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE]duration-500 font-bold" : ""}>Home</NavLink></li>
@@ -30,8 +30,8 @@ const NavBar = () => {
                             <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE] duration-500 font-bold" : ""}>Blog</NavLink></li>
                         </ul>
                     </div>
-                    <div className='hidden md:block'>
-                        <Link to={'/'} className="btn md:bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link>
+                    <div className='hidden lg:block'>
+                        <Link to={'/'} className="btn lg:bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@ const NavBar = () => {
                                 <li><a>Logout</a></li>
                             </ul>
                         </div>
-                        <Link to={'/login'} className='btn md:glass px-7 ml-2'>Login</Link>
+                        <Link to={'/login'} className='btn lg:glass px-7 ml-2'>Login</Link>
                     </div>
                 </div>
             </div>
