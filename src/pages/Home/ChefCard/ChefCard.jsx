@@ -26,7 +26,7 @@ const ChefCard = ({ chef }) => {
             <LazyLoad offset={300}  className='lazy'>
                 <figure><img src={picture} alt="Shoes" className='w-full h-72 lg:h-64 rounded-t-2xl' /></figure>
             </LazyLoad>
-            <div className="card-body shadow-lg shadow-white">
+            <div className="card-body shadow-lg shadow-white px-2">
                 <h2 className="card-title text-2xl">{name}</h2>
                 <li className='font-semibold'>{years_of_experience} years_of_experience</li>
                 <li className='font-semibold'>{num_of_recipes} Recipe Created</li>

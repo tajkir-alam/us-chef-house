@@ -23,7 +23,7 @@ const Home = () => {
 
     return (
         <div>
-            <section className='bg-banner-img bg-no-repeat h-[calc(100vh-150px)] lg:[calc(100vh + 10px)]'>
+            <section className='bg-banner-img bg-no-repeat bg-cover bg-center h-[calc(100vh-150px)] lg:[calc(100vh + 10px)]'>
                 <Banner />
             </section>
 
@@ -34,7 +34,7 @@ const Home = () => {
                     <p className='lg:font-semibold'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ex accusamus amet praesenti Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, est?</p>
                 </div>
 
-                <div className='grid lg:grid-cols-3 gap-5 mt-12 px-4 lg:custom-container '>
+                <div className='grid lg:grid-cols-3 gap-5 mt-12 md:custom-container '>
                     {
                         chefs.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)
                     }

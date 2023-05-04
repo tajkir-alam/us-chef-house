@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { HiUserCircle, HiMenuAlt1 } from "react-icons/hi";
+import React, { useContext, useState } from 'react';
+import { HiMenuAlt1 } from "react-icons/hi";
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 
@@ -22,7 +22,7 @@ const NavBar = () => {
         logout()
             .then(result => {
                 const user = result.user;
-                navigate('/login');
+                navigate('/');
             })
             .catch(error => {
                 console.log(error.message);
@@ -44,7 +44,10 @@ const NavBar = () => {
                             <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? "text-[#7E90FE] duration-500 font-bold" : ""}>Blog</NavLink></li>
                         </ul>
                     </div>
-                    <Link to={'/'} className="btn lg:bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link>
+                    {user ?
+                        <Link to={'/'} className="block btn lg:bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link> :
+                        <Link to={'/'} className="hidden md:block btn lg:bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link>
+                    }
                 </div>
 
                 {/* For Desktop View */}
@@ -73,7 +76,9 @@ const NavBar = () => {
                             </ul>
                         </div>
                         {user ?
-                            <span className='hidden md:block'><Link to={'/login'} onClick={signOut} className='btn lg:glass px-7 ml-2'>Logout</Link></span>
+                            <span className='hidden md:block'>
+                                <Link onClick={signOut} className='btn lg:glass px-7 ml-2'>Logout</Link>
+                            </span>
                             : <Link to={'/login'} className='btn lg:glass px-7 ml-2'>Login</Link>
                         }
                     </div>

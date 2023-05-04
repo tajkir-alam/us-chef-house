@@ -16,7 +16,7 @@ import img6 from '../../../assets/chef6.jpg'
 const Banner = () => {
     return (
         <div className='flex justify-between items-center py-32'>
-            <div className="carousel lg:w-2/4 mx-auto text-white">
+            <div className="carousel lg:w-3/5 mx-auto text-white">
                 <div id="item1" className="carousel-item w-full mx-auto block text-center">
                     <h1 className='text-7xl mb-4'>Chef Gordon Ramsay</h1>
                     <p className='text-sm font-semibold'>WE HAVE THE THE <br /> BEST CHEF'S FROM THE WORLD</p>

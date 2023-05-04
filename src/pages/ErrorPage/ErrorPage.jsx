@@ -1,13 +1,10 @@
 import React from 'react';
 import NavBar from '../SharedPages/Navbar/NavBar';
-import { FaPizzaSlice } from 'react-icons/fa';
 import { useRouteError } from 'react-router-dom';
 import pizzaError from '../../assets/pizzaerror.png'
 
 const ErrorPage = () => {
     const { error, status, statusText } = useRouteError();
-    console.log(error, status);
-    console.log(useRouteError())
 
     return (
         // <div className='bg-[#d9dde3]'>
@@ -26,15 +23,7 @@ const ErrorPage = () => {
                         </div>
                         <h5 className='text-lg text-center mt-16'>{error.message}</h5>
                     </div>
-                    <div className='border-l-2 border-slate-200 '>
-                        {/* <div className='relative grid justify-end'>
-                            <FaPizzaSlice
-                                className='text-[400px]'
-                            ></FaPizzaSlice>
-                            <FaPizzaSlice
-                                className='text-[400px] absolute top-1 right-12 text-slate-100'
-                            ></FaPizzaSlice>
-                        </div> */}
+                    <div className='mt-12 md:mt-0 md:border-l-2 border-slate-200 pl-4'>
                         <div>
                             <img src={pizzaError} alt="" className='w-full' />
                         </div>
