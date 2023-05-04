@@ -3,17 +3,21 @@ import { HiHand } from 'react-icons/hi';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import { HashLoader } from 'react-spinners';
 
 
 const Registration = () => {
     const [Error, setError] = useState('');
 
+    const [spinner, setSpinner] = useState(false);
+
     const ref = useRef(null);
     const navigate = useNavigate();
 
-    const { emailRegister, googleLogin, githubLogin } = useContext(AuthContext);
+    const { emailRegister, googleLogin, githubLogin, updateinfo } = useContext(AuthContext);
 
     const handleRegistration = (e) => {
+        setSpinner(true);
         e.preventDefault();
         setError('');
 
@@ -38,20 +42,31 @@ const Registration = () => {
         emailRegister(email, password)
             .then(result => {
                 const user = result.user;
-                navigate('/login')
+                navigate('/login');
+                setSpinner(false);
+                console.log(user);
             })
             .catch(error => {
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
+                console.log(err.message);
+            })
+
+        updateinfo(name, photoUrl)
+            .then(() => {})
+            .catch(error => {
+                console.log(error.message);
             })
 
         console.log(name, photoUrl, email, password);
     }
 
     const googleRegister = () => {
+        setSpinner(true);
         googleLogin()
             .then(result => {
                 const user = result.user;
-                navigate('/')
+                navigate('/');
+                setSpinner(false);
             })
             .catch(error => {
                 console.log(error.message)
@@ -59,10 +74,12 @@ const Registration = () => {
     }
 
     const githubRegister = () => {
+        setSpinner(true);
         githubLogin()
             .then(result => {
                 const user = result.user;
-                navigate('/')
+                navigate('/');
+                setSpinner(false);
             })
             .catch(error => {
                 console.log(error.message);
@@ -71,6 +88,22 @@ const Registration = () => {
 
     return (
         <div className='mb-12'>
+            {spinner &&
+                <div>
+                    <div className='hidden lg:block absolute left-1/3 top-2/4'>
+                        <HashLoader
+                            color="#5b31d2"
+                            size={400}
+                        ></HashLoader>
+                    </div>
+                    <div className='lg:hidden absolute left-1/4 top-1/4'>
+                        <HashLoader
+                            color="#5b31d2"
+                            size={200}
+                        ></HashLoader>
+                    </div>
+                </div>
+            }
             <div className='flex justify-center items-center gap-2 lg:bg-slate-800 pt-8  lg:py-12'>
                 <div className='lg:mt-6'>
                     <h1 className='text-md lg:text-2xl lg:text-yellow-300 text-center font-extrabold tracking-wide'>Hello! WE WAS WAITING FOR YOU</h1>

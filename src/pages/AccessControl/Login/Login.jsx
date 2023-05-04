@@ -3,10 +3,13 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { HiHand } from 'react-icons/hi';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import { HashLoader } from 'react-spinners';    
 
 
 const Login = () => {
     const [Error, setError] = useState('');
+
+    const [spinner, setSpinner] = useState(false);
 
     const ref = useRef(null);
     const navigate = useNavigate();
@@ -14,6 +17,7 @@ const Login = () => {
     const { emailLogin, googleLogin, githubLogin } = useContext(AuthContext);
 
     const handleLogin = (e) => {
+        setSpinner(true);
         e.preventDefault();
         setError('');
 
@@ -36,20 +40,24 @@ const Login = () => {
         emailLogin(email, password)
             .then(result => {
                 const user = result.user;
-                navigate('/')
+                navigate('/');
+                setSpinner(false);
+                console.log(user);
             })
             .catch(error => {
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
             })
 
-        console.log(name, photoUrl, email, password);
+        console.log(email, password);
     }
 
     const googleRegister = () => {
+        setSpinner(true);
         googleLogin()
             .then(result => {
                 const user = result.user;
-                navigate('/')
+                navigate('/');
+                setSpinner(false);
             })
             .catch(error => {
                 console.log(error.message)
@@ -57,10 +65,12 @@ const Login = () => {
     }
 
     const githubRegister = () => {
+        setSpinner(true);
         githubLogin()
             .then(result => {
                 const user = result.user;
-                navigate('/')
+                navigate('/');
+                setSpinner(false);
             })
             .catch(error => {
                 console.log(error.message);
@@ -70,6 +80,22 @@ const Login = () => {
 
     return (
         <div className='mb-12'>
+            {spinner &&
+                <div>
+                    <div className='hidden lg:block absolute left-1/3 top-2/4'>
+                        <HashLoader
+                            color="#5b31d2"
+                            size={400}
+                        ></HashLoader>
+                    </div>
+                    <div className='lg:hidden absolute left-1/4 top-1/4'>
+                        <HashLoader
+                            color="#5b31d2"
+                            size={200}
+                        ></HashLoader>
+                    </div>
+                </div>
+            }
             <div className='flex justify-center items-center gap-2 lg:bg-slate-800 pt-8  lg:py-12'>
                 <div className='lg:mt-6'>
                     <h1 className='text-md lg:text-2xl lg:text-yellow-300 text-center font-extrabold tracking-wide'>Hello! WE WAS WAITING FOR YOU</h1>
@@ -116,7 +142,7 @@ const Login = () => {
                                 <input type="password" name="password" id="password" placeholder='Password' required
                                     className='border border-slate-200 outline-none px-6 py-3 rounded-lg shadow-inner bg-transparent'
                                 />
-                                { Error ?
+                                {Error ?
                                     <p className='mt-5 text-error font-medium tracking-wider'>{Error} don't have an account? <Link to='/registration' className='text-primary'>Click Here</Link></p>
                                     : ""
                                 }
