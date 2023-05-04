@@ -46,8 +46,6 @@ const AuthProviders = ({ children }) => {
         return signOut(auth);
     }
 
-    // const updateinfo = (name, photo) => {
-    // }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -68,7 +66,7 @@ const AuthProviders = ({ children }) => {
         githubLogin,
         logout,
     }
-    
+
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

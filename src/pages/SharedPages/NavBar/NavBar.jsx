@@ -6,7 +6,6 @@ import { AuthContext } from '../../../Providers/AuthProviders';
 const NavBar = () => {
     const [bgColor, setBgColor] = useState(false);
     const { user, logout } = useContext(AuthContext);
-    console.log(user?.photoURL);
     const navigate = useNavigate();
 
     const changeColor = () => {
@@ -42,7 +41,7 @@ const NavBar = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE]duration-500 font-bold" : ""}>Home</NavLink></li>
                             <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE] duration-500 font-bold" : ""}>About US</NavLink></li>
-                            <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#7E90FE] duration-500 font-bold" : ""}>Blog</NavLink></li>
+                            <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? "text-[#7E90FE] duration-500 font-bold" : ""}>Blog</NavLink></li>
                         </ul>
                     </div>
                     <Link to={'/'} className="btn lg:bg-transparent border-0 normal-case text-3xl">US CHEF HOUSE</Link>
@@ -54,7 +53,7 @@ const NavBar = () => {
                         <ul className="menu menu-horizontal text-white px-1">
                             <li><NavLink to={'/'} className={({ isActive }) => isActive ? "text-[#a7b3ff] duration-500 font-bold" : ""}>Home</NavLink></li>
                             <li><NavLink to={'/d'} className={({ isActive }) => isActive ? "text-[#a7b3ff] duration-500 font-bold" : ""}>About US</NavLink></li>
-                            <li><NavLink to={'/d'} className={({ isActive }) => isActive ? "text-[#a7b3ff] duration-500 font-bold" : ""}>Blog</NavLink></li>
+                            <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? "text-[#a7b3ff] duration-500 font-bold" : ""}>Blog</NavLink></li>
                         </ul>
                     </div>
 

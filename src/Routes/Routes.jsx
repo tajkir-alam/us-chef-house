@@ -6,11 +6,14 @@ import ChefPage from "../pages/ChefPage/ChefPage";
 import Login from "../pages/AccessControl/Login/Login";
 import Registration from "../pages/AccessControl/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Blog from "../pages/Blog/Blog";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -29,6 +32,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><ChefPage></ChefPage></PrivateRoute>,
                 loader: ({params}) => fetch(`https://server-data-tajkir-alam.vercel.app/chef-about/${params.id}`)
             },
+            {
+                path: 'blog',
+                element: <Blog></Blog>
+            }
         ]
     }
 ]);
