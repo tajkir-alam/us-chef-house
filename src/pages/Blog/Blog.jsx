@@ -1,4 +1,7 @@
 import React from 'react';
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const Blog = () => {
     return (
@@ -7,10 +10,12 @@ const Blog = () => {
                 <h1 className='font-extrabold text-4xl text-yellow-300 pt-8 md:pt-20 pb-6 bg-header-bg text-center'>
                     Welcome to Chef's Blogs
                 </h1>
-                <button className='btn btn-warning text-center text-white font-bold tracking-widest'>Download PDF</button>
+                <Pdf targetRef={ref} filename="code-example.pdf">
+                    {({ toPdf }) => <button className="btn btn-warning text-center text-white font-bold tracking-widest" onClick={toPdf}>Generate Pdf</button>}
+                </Pdf>
             </header>
 
-            <main className='md:w-4/5 mx-auto py-4 px-2 md:px-0'>
+            <main ref={ref} className='bg-slate-700 md:w-4/5 mx-auto py-12 px-8 md:px-4'>
                 <h1 className='text-xl font-semibold'>1. Tell us the differences between uncontrolled and controlled components.</h1>
                 <h4 className='font-medium pt-2'>Ans: Controlled components state and behavior are controlled by their parent component .</h4>
 
