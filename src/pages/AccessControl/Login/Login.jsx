@@ -61,7 +61,7 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+                navigate(from, {replace: true});
                 setSpinner(false);
             })
             .catch((error) => {
@@ -74,7 +74,7 @@ const Login = () => {
         setSpinner(true);
         githubLogin()
             .then(() => {
-                navigate('/');
+                navigate(from, {replace: true});
                 setSpinner(false);
             })
             .catch(error => {
