@@ -3,10 +3,11 @@ import React from 'react';
 const Blog = () => {
     return (
         <div className='bg-slate-700  text-white'>
-            <header>
-                <h1 className='font-extrabold text-4xl text-yellow-300 pt-8 md:pt-20 pb-6 md:pb-14 bg-header-bg text-center'>
+            <header className='grid justify-center px-4'>
+                <h1 className='font-extrabold text-4xl text-yellow-300 pt-8 md:pt-20 pb-6 bg-header-bg text-center'>
                     Welcome to Chef's Blogs
                 </h1>
+                <button className='btn btn-warning text-center text-white font-bold tracking-widest'>Download PDF</button>
             </header>
 
             <main className='md:w-4/5 mx-auto py-4 px-2 md:px-0'>
