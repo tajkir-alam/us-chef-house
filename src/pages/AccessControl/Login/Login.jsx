@@ -1,10 +1,73 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { HiHand } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 
 const Login = () => {
+    const [Error, setError] = useState('');
+
+    const ref = useRef(null);
+    const navigate = useNavigate();
+
+    const { emailLogin, googleLogin, githubLogin } = useContext(AuthContext);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        setError('');
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        if (password.length < 6) {
+            setError("Your Password Can't be less than 6 character!!!");
+            ref.current.focus();
+            return
+        }
+
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
+            setError("Please add at least one letter and one number");
+            ref.current.focus();
+            return
+        }
+
+        emailLogin(email, password)
+            .then(result => {
+                const user = result.user;
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message.split('(')[1].split(')')[0].split('/')[1])
+            })
+
+        console.log(name, photoUrl, email, password);
+    }
+
+    const googleRegister = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
+    const githubRegister = () => {
+        githubLogin()
+            .then(result => {
+                const user = result.user;
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
+
     return (
         <div className='mb-12'>
             <div className='flex justify-center items-center gap-2 lg:bg-slate-800 pt-8  lg:py-12'>
@@ -27,17 +90,17 @@ const Login = () => {
                                 <br />
                                 Please Register!
                             </p>
-                            <Link to={'/registration'} className="btn rounded-full mx-auto mt-6 lg:mt-12 btn-wide">SIGN IN</Link>
+                            <Link to={'/registration'} className="btn rounded-full mx-auto mt-6 lg:mt-12 btn-wide">SIGN UP</Link>
                         </div>
 
                         <div className='lg:col-span-2 px-20 justify-center text-center'>
                             <h1 className='text-4xl text-slate-600 font-bold tracking-wide'>Welcome Back</h1>
                             <div className='flex gap-2 justify-center items-center my-6'>
                                 <button className='w-12 h-12 hover:bg-slate-200 border-2 border-slate-700 rounded-full flex justify-center items-center'>
-                                    <FaGoogle className='text-2xl text-slate-700'></FaGoogle>
+                                    <FaGoogle onClick={googleRegister} className='text-2xl text-slate-700'></FaGoogle>
                                 </button>
                                 <button className='w-12 h-12 hover:bg-slate-200 border-2 border-slate-700 rounded-full flex justify-center items-center'>
-                                    <FaGithub className='text-2xl text-slate-700'></FaGithub>
+                                    <FaGithub onClick={githubRegister} className='text-2xl text-slate-700'></FaGithub>
                                 </button>
                             </div>
                             <div>
@@ -46,14 +109,18 @@ const Login = () => {
                             </div>
 
                             {/* Form Section */}
-                            <form className='grid w-full'>
+                            <form onSubmit={handleLogin} className='grid w-full'>
                                 <input type="email" name="email" id="email" placeholder='Email' required
                                     className='border border-slate-200 mb-6 outline-none px-6 py-3 rounded-lg shadow-inner bg-transparent'
                                 />
                                 <input type="password" name="password" id="password" placeholder='Password' required
                                     className='border border-slate-200 outline-none px-6 py-3 rounded-lg shadow-inner bg-transparent'
                                 />
-                                <input type="submit" value="SIGN UP" className="btn rounded-full mx-auto my-8 lg:my-10 btn-wide" />
+                                { Error ?
+                                    <p className='mt-5 text-error font-medium tracking-wider'>{Error} don't have an account? <Link to='/registration' className='text-primary'>Click Here</Link></p>
+                                    : ""
+                                }
+                                <input type="submit" value="SIGN IN" className="btn rounded-full mx-auto my-8 lg:my-10 btn-wide" />
                             </form>
                         </div>
                     </div>

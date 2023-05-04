@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { HiUserCircle, HiMenuAlt1 } from "react-icons/hi";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 const NavBar = () => {
     const [bgColor, setBgColor] = useState(false);
+    const { user, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const changeColor = () => {
         if (window.scrollY >= 90) {
             setBgColor(true)
@@ -14,6 +18,16 @@ const NavBar = () => {
     }
     window.addEventListener('scroll', changeColor)
 
+    const signOut = () => {
+        logout()
+            .then(result => {
+                const user = result.user;
+                navigate('/login');
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
     return (
         <>
@@ -47,7 +61,10 @@ const NavBar = () => {
 
                     <div className='flex'>
                         <div className="dropdown dropdown-end">
-                            <HiUserCircle tabIndex={0} className='text-5xl text-secondary btn btn-ghost btn-circle avatar'></HiUserCircle>
+                            {user ?
+                                <HiUserCircle tabIndex={0} className='text-5xl text-secondary btn btn-ghost btn-circle avatar'></HiUserCircle>
+                                : ""
+                            }
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
                                     <a className="justify-between">
@@ -59,7 +76,10 @@ const NavBar = () => {
                                 <li><a>Logout</a></li>
                             </ul>
                         </div>
-                        <Link to={'/login'} className='btn lg:glass px-7 ml-2'>Login</Link>
+                        {user ? 
+                            <Link to={'/login'} onClick={signOut} className='btn lg:glass px-7 ml-2'>Logout</Link>
+                            : <Link to={'/login'} className='btn lg:glass px-7 ml-2'>Login</Link>
+                        }
                     </div>
                 </div>
             </div>
