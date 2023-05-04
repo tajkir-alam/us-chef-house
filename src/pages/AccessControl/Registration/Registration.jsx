@@ -14,7 +14,7 @@ const Registration = () => {
     const ref = useRef(null);
     const navigate = useNavigate();
 
-    const { emailRegister, googleLogin, githubLogin, updateinfo } = useContext(AuthContext);
+    const { emailRegister, googleLogin, githubLogin } = useContext(AuthContext);
 
     const handleRegistration = (e) => {
         setSpinner(true);
@@ -39,7 +39,7 @@ const Registration = () => {
             return
         }
 
-        emailRegister(email, password)
+        emailRegister(email, password, name, photoUrl)
             .then(result => {
                 const user = result.user;
                 navigate('/login');
@@ -48,12 +48,6 @@ const Registration = () => {
             })
             .catch(error => {
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
-                console.log(err.message);
-            })
-
-        updateinfo(name, photoUrl)
-            .then(() => {})
-            .catch(error => {
                 console.log(error.message);
             })
 

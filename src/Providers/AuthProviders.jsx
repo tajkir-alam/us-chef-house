@@ -11,10 +11,21 @@ const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loader, setLoader] = useState(true);
 
-    const emailRegister = (email, password, name, photo) => {
-        setLoader(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+    const emailRegister = async (email, password, name, photo) => {
+        try {
+            setLoader(true);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            await updateProfile(userCredential.user, {
+                displayName: name,
+                photoURL: photo
+            });
+            return userCredential;
+        }
+        catch (error) {
+            throw error;
+        }
     }
+
 
     const emailLogin = (email, password) => {
         setLoader(true);
@@ -35,9 +46,8 @@ const AuthProviders = ({ children }) => {
         return signOut(auth);
     }
 
-    const updateinfo = (name, photo) => {
-        return updateProfile(auth.currentUser, { displayName: "Rion khela hobe", photoURL: photo })
-    }
+    // const updateinfo = (name, photo) => {
+    // }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -51,7 +61,6 @@ const AuthProviders = ({ children }) => {
 
     const authInfo = {
         user,
-        updateinfo,
         emailRegister,
         emailLogin,
         googleLogin,
