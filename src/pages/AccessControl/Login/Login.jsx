@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { HiHand } from 'react-icons/hi';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { HashLoader } from 'react-spinners';    
 
@@ -15,6 +15,9 @@ const Login = () => {
     const navigate = useNavigate();
 
     const { emailLogin, googleLogin, githubLogin } = useContext(AuthContext);
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (e) => {
         setSpinner(true);
@@ -40,7 +43,7 @@ const Login = () => {
         emailLogin(email, password)
             .then(result => {
                 const user = result.user;
-                navigate('/');
+                navigate(from, {replace: true});
                 setSpinner(false);
                 console.log(user);
             })

@@ -5,6 +5,7 @@ import Home from "../pages/Home/Home/Home";
 import ChefPage from "../pages/ChefPage/ChefPage";
 import Login from "../pages/AccessControl/Login/Login";
 import Registration from "../pages/AccessControl/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'chef-page/:id',
-                element: <ChefPage></ChefPage>,
+                element: <PrivateRoute><ChefPage></ChefPage></PrivateRoute>,
                 loader: ({params}) => fetch(`https://server-data-tajkir-alam.vercel.app/chef-about/${params.id}`)
             },
         ]
