@@ -48,6 +48,7 @@ const Login = () => {
                 console.log(user);
             })
             .catch(error => {
+                console.log(error.message)
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
                 setSpinner(false)
             })
@@ -63,7 +64,7 @@ const Login = () => {
                 navigate('/');
                 setSpinner(false);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error.message);
                 setSpinner(false);
             })
@@ -72,8 +73,7 @@ const Login = () => {
     const githubRegister = () => {
         setSpinner(true);
         githubLogin()
-            .then(result => {
-                const user = result.user;
+            .then(() => {
                 navigate('/');
                 setSpinner(false);
             })
