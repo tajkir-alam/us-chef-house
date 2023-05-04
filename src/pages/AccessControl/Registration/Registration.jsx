@@ -49,6 +49,7 @@ const Registration = () => {
             .catch(error => {
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
                 console.log(error.message);
+                setSpinner(false);
             })
 
         console.log(name, photoUrl, email, password);
@@ -63,7 +64,8 @@ const Registration = () => {
                 setSpinner(false);
             })
             .catch(error => {
-                console.log(error.message)
+                console.log(error.message);
+                setSpinner(false);
             })
     }
 
@@ -77,6 +79,7 @@ const Registration = () => {
             })
             .catch(error => {
                 console.log(error.message);
+                setSpinner(false);
             })
     }
 

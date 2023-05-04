@@ -46,6 +46,7 @@ const Login = () => {
             })
             .catch(error => {
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
+                setSpinner(false)
             })
 
         console.log(email, password);
@@ -60,7 +61,8 @@ const Login = () => {
                 setSpinner(false);
             })
             .catch(error => {
-                console.log(error.message)
+                console.log(error.message);
+                setSpinner(false);
             })
     }
 
@@ -74,6 +76,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error.message);
+                setSpinner(false);
             })
     }
 
