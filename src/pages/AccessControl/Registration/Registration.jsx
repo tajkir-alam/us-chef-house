@@ -34,7 +34,7 @@ const Registration = () => {
         }
 
         if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
-            setError("Please add at least one letter and one number");
+            setError("Please add at least one capital and small letter and one number");
             ref.current.focus();
             return
         }

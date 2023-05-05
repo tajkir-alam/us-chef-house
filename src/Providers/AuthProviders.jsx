@@ -60,6 +60,7 @@ const AuthProviders = ({ children }) => {
     const authInfo = {
         user,
         loader,
+        setLoader,
         emailRegister,
         emailLogin,
         googleLogin,
