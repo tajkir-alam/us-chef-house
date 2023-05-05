@@ -79,7 +79,11 @@ const NavBar = () => {
                             <span className='hidden md:block'>
                                 <Link onClick={signOut} className='btn lg:glass px-7 ml-2'>Logout</Link>
                             </span>
-                            : <Link to={'/login'} className='btn lg:glass px-7 ml-2'>Login</Link>
+                            : <>
+                            <Link to={'/login'} className='btn lg:glass px-7 ml-2'>Login</Link>
+                            <Link to={'/registration'} onClick={signOut} className='btn  btn-info px-7 ml-2 text-white'>signup</Link>
+
+                            </>
                         }
                     </div>
                 </div>
