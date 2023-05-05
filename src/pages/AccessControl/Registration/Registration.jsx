@@ -89,7 +89,7 @@ const Registration = () => {
         <div className='mb-12'>
             {spinner &&
                 <div>
-                    <div className='hidden lg:block absolute left-1/3 top-2/4'>
+                    <div className='hidden lg:block absolute left-1/3 top-1/4'>
                         <HashLoader
                             color="#5b31d2"
                             size={400}

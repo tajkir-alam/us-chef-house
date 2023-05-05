@@ -3,7 +3,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { HiHand } from 'react-icons/hi';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
-import { HashLoader } from 'react-spinners';    
+import { HashLoader } from 'react-spinners';
 
 
 const Login = () => {
@@ -43,17 +43,14 @@ const Login = () => {
         emailLogin(email, password)
             .then(result => {
                 const user = result.user;
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 setSpinner(false);
-                console.log(user);
             })
             .catch(error => {
                 console.log(error.message)
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
                 setSpinner(false)
             })
-
-        console.log(email, password);
     }
 
     const googleRegister = () => {
@@ -61,7 +58,7 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 setSpinner(false);
             })
             .catch((error) => {
@@ -74,7 +71,7 @@ const Login = () => {
         setSpinner(true);
         githubLogin()
             .then(() => {
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 setSpinner(false);
             })
             .catch(error => {
@@ -88,7 +85,7 @@ const Login = () => {
         <div className='mb-12'>
             {spinner &&
                 <div>
-                    <div className='hidden lg:block absolute left-1/3 top-2/4'>
+                    <div className='hidden lg:block absolute left-1/3 top-1/4'>
                         <HashLoader
                             color="#5b31d2"
                             size={400}
