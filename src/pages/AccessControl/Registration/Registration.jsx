@@ -14,7 +14,7 @@ const Registration = () => {
     const ref = useRef(null);
     const navigate = useNavigate();
 
-    const { emailRegister, googleLogin, githubLogin } = useContext(AuthContext);
+    const { emailRegister, googleLogin, githubLogin, logout } = useContext(AuthContext);
 
     const handleRegistration = (e) => {
         setSpinner(true);
@@ -43,8 +43,8 @@ const Registration = () => {
             .then(result => {
                 const user = result.user;
                 navigate('/login');
+                logout();
                 setSpinner(false);
-                console.log(user);
             })
             .catch(error => {
                 setError(error.message.split('(')[1].split(')')[0].split('/')[1])
@@ -60,7 +60,8 @@ const Registration = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+                logout();
+                navigate('/login');
                 setSpinner(false);
             })
             .catch(error => {
@@ -74,7 +75,8 @@ const Registration = () => {
         githubLogin()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+                logout();
+                navigate('/login');
                 setSpinner(false);
             })
             .catch(error => {
